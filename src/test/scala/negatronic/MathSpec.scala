@@ -2,6 +2,8 @@ package negatronic
 
 import org.scalatest.{FlatSpec, Matchers}
 
+import scala.math.abs
+
 /**
  * Created by darnold on 7/16/16.
  */
@@ -47,7 +49,7 @@ class MathSpec extends FlatSpec with Matchers {
     val expected = 0.000054
     val eps = 1E-7
 
-    scala.math.abs(actual - expected) should be < eps
+    abs(actual - expected) should be < eps
   }
 
   "Binomial cumulatve distribution function" should "map cdf(.3, 5, 2) to approximately 0.837" in {
@@ -55,7 +57,7 @@ class MathSpec extends FlatSpec with Matchers {
     val expected = 0.837
     val eps = 1E-3
 
-    scala.math.abs(actual - expected) should be < eps
+    abs(actual - expected) should be < eps
   }
 
   it should "map cdf(.9, 7, 5) to approximately 0.150" in {
@@ -63,7 +65,7 @@ class MathSpec extends FlatSpec with Matchers {
     val expected = 0.150
     val eps = 1E-3
 
-    scala.math.abs(actual - expected) should be < eps
+    abs(actual - expected) should be < eps
   }
 
   it should "map any k less than 0 to 0" in {
