@@ -15,7 +15,7 @@ The second rule is not usually used in human play, but is common in computer tou
 
 ## Using the software
 
-Requires Scala 2.11.8 and SBT 0.13.11.  No other libraries are needed.
+Requires Scala 2.11.8 and SBT 0.13.11.  [ScalaTest](http://www.scalatest.org) is required to run tests.  No other libraries are required.
 
 To run unit tests, execute `sbt test` in the project directory.
 
