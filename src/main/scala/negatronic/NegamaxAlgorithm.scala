@@ -4,12 +4,12 @@ package negatronic
  * Created by darnold on 7/9/16.
  */
 class NegamaxAlgorithm {
-  def walk(state: GameState, depth: Int, alpha: Double = -1.0, beta: Double = 1): Double = {
+  def walk(state: GameState, depth: Int, alpha: Double = Double.NegativeInfinity, beta: Double = Double.PositiveInfinity): Double = {
     if (depth == 0 || state.isTerminal)
       state.color * state.heuristic
     else
-      state.enumerateMoves.foldLeft((-1.0, alpha)) { case ((bestValue, bestAlpha), child) =>
-        val v = if (bestAlpha < beta) -walk(child, depth - 1, -beta, -bestAlpha) else -1.0
+      state.enumerateMoves.foldLeft((Double.NegativeInfinity, alpha)) { case ((bestValue, bestAlpha), child) =>
+        val v = if (bestAlpha < beta) -walk(child, depth - 1, -beta, -bestAlpha) else Double.NegativeInfinity
         (bestValue max v, bestAlpha max v)
       }._1
   }
